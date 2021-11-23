@@ -10,6 +10,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.onepercent.xweight.profile.ui_profile.ProfileScreen
 import com.onepercent.xweight.ui.navigation.Screen
 import com.onepercent.xweight.ui.theme.XweightTheme
 import com.onepercent.xweight.weight.ui_weightList.ui.WeightList
@@ -32,6 +33,7 @@ class MainActivity : ComponentActivity() {
                         startDestination = Screen.WeightList.route,
                         builder = {
                             addWeightList(navController)
+                            addProfileScreen()
                         }
                     )
                 }
@@ -54,5 +56,15 @@ fun NavGraphBuilder.addWeightList(
             events = weightListViewModel::onTriggerEvent
 
         )
+    }
+}
+
+fun NavGraphBuilder.addProfileScreen(
+
+) {
+    composable(
+        route = Screen.ProfileScreen.route
+    ) {
+        ProfileScreen()
     }
 }
