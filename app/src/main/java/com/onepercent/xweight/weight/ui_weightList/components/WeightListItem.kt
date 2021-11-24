@@ -2,6 +2,7 @@ package com.onepercent.xweight.weight.ui_weightList.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -28,9 +29,9 @@ fun WeightListItem(
     } else 0.0
 
     val backgroundColor = when {
-        difference > 0 -> Color(0xffe0fce0)
-        difference < 0 -> Color(0xfffce0e0)
-        else -> MaterialTheme.colors.background
+        difference > 0 -> if (isSystemInDarkTheme()) Color(0xff112613) else Color(0xffe0fce0)
+        difference < 0 -> if (isSystemInDarkTheme()) Color(0xff3b2728) else Color(0xfffce0e0)
+        else -> MaterialTheme.colors.surface
     }
 
     val textColor = when {
