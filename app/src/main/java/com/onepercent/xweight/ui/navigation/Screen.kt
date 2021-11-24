@@ -7,4 +7,6 @@ sealed class Screen(
     val arguments: List<NamedNavArgument>
 ) {
     object WeightList: Screen("weightList", emptyList())
+
+    object HomeScreen: Screen("homeScreen", emptyList())
 }
