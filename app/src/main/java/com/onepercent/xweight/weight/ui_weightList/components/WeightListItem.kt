@@ -56,7 +56,6 @@ fun WeightListItem(
                 // Date
                 Text(
                     modifier = Modifier.weight(1f),
-                    color = Color(0xff302f2f),
                     textAlign = TextAlign.Center,
                     text = SimpleDateFormat("dd/MM/yy", Locale.getDefault()).format(Date(weightMeasurement.date))
                 )
@@ -64,7 +63,6 @@ fun WeightListItem(
                 // Weight
                 Text(
                     modifier = Modifier.weight(1f),
-                    color = Color(0xff302f2f),
                     textAlign = TextAlign.Center,
                     text = "${weightMeasurement.weight} kg"
                 )
