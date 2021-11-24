@@ -38,7 +38,6 @@ fun WeightList(
         topBar = {
             TopAppBar(
                 title = { Text(text = "History") },
-                backgroundColor = Color.White,
                 actions = {
 //                    IconButton(onClick = { /*TODO*/ }) {
 //                        Icon(Icons.Filled.Sort, contentDescription = "Sorting by date")
@@ -55,7 +54,6 @@ fun WeightList(
             ) {
                 Icon(
                     imageVector = Icons.Filled.Add,
-                    tint = Color.White,
                     contentDescription = "add new weight measurement"
                 )
             }
