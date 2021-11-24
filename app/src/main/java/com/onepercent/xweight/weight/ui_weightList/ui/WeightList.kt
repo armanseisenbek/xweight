@@ -29,7 +29,6 @@ import com.onepercent.xweight.weight.weight_domain.WeightMeasurement
 fun WeightList(
     state: WeightListState,
     events: (WeightListEvent) -> Unit,
-    navigateToHomeScreen: () -> Unit
 ) {
 
     val scaffoldState = rememberScaffoldState()
@@ -60,23 +59,6 @@ fun WeightList(
             }
         },
         floatingActionButtonPosition = FabPosition.End,
-        bottomBar = {
-            BottomNavigation() {
-                BottomNavigationItem(
-                    selected = false,
-                    icon = { Icon(imageVector = Icons.Filled.Home, contentDescription = "Home Icon") },
-                    onClick = {  navigateToHomeScreen() }
-                )
-
-                BottomNavigationItem(
-                    selected = true,
-                    icon = { Icon(imageVector = Icons.Filled.List, contentDescription = "History Icon") },
-                    onClick = {
-
-                    }
-                )
-            }
-        }
     ){
         Box(
             modifier = Modifier

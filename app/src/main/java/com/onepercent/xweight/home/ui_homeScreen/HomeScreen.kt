@@ -19,7 +19,6 @@ import com.onepercent.xweight.ui.components.GenericDialog
 fun HomeScreen(
     state: HomeScreenState,
     events: (HomeScreenEvent) -> Unit,
-    navigateToHistoryScreen: () -> Unit,
 ) {
 
     val scaffoldState = rememberScaffoldState()
@@ -68,22 +67,5 @@ fun HomeScreen(
                 }
             }
         },
-        bottomBar = {
-            BottomNavigation() {
-                BottomNavigationItem(
-                    selected = true,
-                    icon = { Icon(imageVector = Icons.Filled.Home, contentDescription = "Home Icon") },
-                    onClick = { /*TODO*/ }
-                )
-
-                BottomNavigationItem(
-                    selected = false,
-                    icon = { Icon(imageVector = Icons.Filled.List, contentDescription = "History Icon") },
-                    onClick = {
-                        navigateToHistoryScreen()
-                    }
-                )
-            }
-        }
     )
 }
