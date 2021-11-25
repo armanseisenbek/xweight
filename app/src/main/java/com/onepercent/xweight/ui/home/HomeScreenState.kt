@@ -1,4 +1,4 @@
-package com.onepercent.xweight.home.ui_homeScreen
+package com.onepercent.xweight.ui.home
 
 import com.onepercent.xweight.core.domain.ProgressBarState
 import com.onepercent.xweight.core.domain.Queue

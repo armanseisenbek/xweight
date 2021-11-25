@@ -1,4 +1,4 @@
-package com.onepercent.xweight.home.ui_homeScreen
+package com.onepercent.xweight.ui.home
 
 sealed class HomeScreenEvent {
 

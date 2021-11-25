@@ -1,12 +1,9 @@
-package com.onepercent.xweight.home.ui_homeScreen
+package com.onepercent.xweight.ui.home
 
 import android.widget.Toast
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.List
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -42,6 +39,31 @@ fun HomeScreen(
                         .fillMaxHeight(fraction = 0.4f),
                     measurements = state.weightMeasurements
                 )
+
+                //            FloatingActionButton(
+//                onClick = {
+//                    events(HistoryScreenEvent.GetLastMeasurement)
+//                    events(HistoryScreenEvent.UpdateFabDialogState(UIComponentState.Show))
+//                }
+//            ) {
+//                Icon(
+//                    imageVector = Icons.Filled.Add,
+//                    contentDescription = "add new weight measurement"
+//                )
+//            }
+//                if (state.fabDialogState is UIComponentState.Show) {
+//                    InsertMeasurementDialog(
+//                        onInsertWeightMeasurement = { events(HistoryScreenEvent.InsertWeightMeasurement(it)) },
+//                        onPickDate = { events(HistoryScreenEvent.PickDateForNewMeasurement(it)) },
+//                        onPickValue = { events(HistoryScreenEvent.PickValueForNewMeasurement(it)) },
+//                        onCloseDialog = { events(
+//                            HistoryScreenEvent.UpdateFabDialogState(
+//                                UIComponentState.Hide)) },
+//                        measurementDate = state.measurementDate,
+//                        measurementValue = state.measurementValue
+//                    )
+//                }
+
 
                 // process the queue
                 if(!state.messageQueue.isEmpty()){

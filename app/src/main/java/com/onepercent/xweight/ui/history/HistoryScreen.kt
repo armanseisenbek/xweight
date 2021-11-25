@@ -1,4 +1,4 @@
-package com.onepercent.xweight.weight.ui_weightList.ui
+package com.onepercent.xweight.ui.history
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
@@ -7,10 +7,11 @@ import androidx.compose.ui.tooling.preview.Preview
 
 import com.onepercent.xweight.core.domain.UIComponentState
 import com.onepercent.xweight.ui.components.DefaultScreenUI
+import com.onepercent.xweight.ui.theme.XweightTheme
 import com.onepercent.xweight.weight.ui_weightList.components.EditMeasurementDialog
 import com.onepercent.xweight.weight.ui_weightList.components.HistoryScreenTopBar
 import com.onepercent.xweight.weight.ui_weightList.components.MeasurementHistoryList
-import com.onepercent.xweight.weight.ui_weightList.ui.HistoryScreenEvent.*
+import com.onepercent.xweight.ui.history.HistoryScreenEvent.*
 import com.onepercent.xweight.weight.weight_domain.WeightMeasurement
 
 @Composable
@@ -61,12 +62,17 @@ fun HistoryScreen(
 @Preview
 @Composable
 fun HistoryScreenPreview() {
-    HistoryScreen(state = HistoryScreenState(
-        weightMeasurements = listOf(
-            WeightMeasurement(1, 67.6, 0),
-            WeightMeasurement(1, 66.6, 0),
-            WeightMeasurement(1, 66.8, 0),
-            WeightMeasurement(1, 65.6, 0),
+    XweightTheme {
+        HistoryScreen(
+            state = HistoryScreenState(
+                weightMeasurements = listOf(
+                    WeightMeasurement(1, 67.6, 0),
+                    WeightMeasurement(1, 66.6, 0),
+                    WeightMeasurement(1, 66.8, 0),
+                    WeightMeasurement(1, 65.6, 0),
+                )
+            ),
+            events = {}
         )
-    ), events = {})
+    }
 }

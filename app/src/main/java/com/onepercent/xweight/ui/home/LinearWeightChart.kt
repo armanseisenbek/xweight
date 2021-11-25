@@ -1,4 +1,4 @@
-package com.onepercent.xweight.home.ui_homeScreen
+package com.onepercent.xweight.ui.home
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.runtime.Composable
@@ -7,7 +7,6 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.Stroke
 import com.onepercent.xweight.weight.weight_domain.WeightMeasurement
-import java.util.*
 
 @Composable
 fun LinearWeightChart(
@@ -61,7 +60,8 @@ fun LinearWeightChart(
                         maxMeasurementsSize = 200,
                         measurementWeight = weightMeasurement.weight,
                         canvasHeight = canvasHeight
-                    ))
+                    )
+                    )
                 )
 
                 currentLineDistance += lineDistance

@@ -1,4 +1,4 @@
-package com.onepercent.xweight.weight.ui_weightList.di
+package com.onepercent.xweight.ui.history.di
 
 import com.onepercent.xweight.weight.weight_interactors.*
 import dagger.Module

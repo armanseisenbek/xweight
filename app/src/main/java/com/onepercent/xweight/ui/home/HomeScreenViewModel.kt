@@ -1,4 +1,4 @@
-package com.onepercent.xweight.home.ui_homeScreen
+package com.onepercent.xweight.ui.home
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf

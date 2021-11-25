@@ -1,4 +1,4 @@
-package com.onepercent.xweight.weight.ui_weightList.ui
+package com.onepercent.xweight.ui.history
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf

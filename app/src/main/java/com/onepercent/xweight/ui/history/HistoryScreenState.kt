@@ -1,4 +1,4 @@
-package com.onepercent.xweight.weight.ui_weightList.ui
+package com.onepercent.xweight.ui.history
 
 import com.onepercent.xweight.core.domain.ProgressBarState
 import com.onepercent.xweight.core.domain.Queue

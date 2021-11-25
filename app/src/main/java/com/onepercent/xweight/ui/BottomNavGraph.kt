@@ -6,11 +6,11 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.onepercent.xweight.home.ui_homeScreen.HomeScreen
-import com.onepercent.xweight.home.ui_homeScreen.HomeScreenViewModel
+import com.onepercent.xweight.ui.home.HomeScreen
+import com.onepercent.xweight.ui.home.HomeScreenViewModel
 import com.onepercent.xweight.ui.navigation.BottomBarScreen
-import com.onepercent.xweight.weight.ui_weightList.ui.HistoryScreen
-import com.onepercent.xweight.weight.ui_weightList.ui.HistoryScreenViewModel
+import com.onepercent.xweight.ui.history.HistoryScreen
+import com.onepercent.xweight.ui.history.HistoryScreenViewModel
 
 @Composable
 fun BottomNavGraph(navController: NavHostController) {
