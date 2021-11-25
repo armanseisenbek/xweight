@@ -1,38 +1,43 @@
 package com.onepercent.xweight.weight.weight_datasource.cache
 
-import com.onepercent.xweight.weight.weight_datasource.cache.room.WeightMeasurementDaoService
+import com.onepercent.xweight.weight.util.mapFromEntity
+import com.onepercent.xweight.weight.util.mapToEntity
 import com.onepercent.xweight.weight.weight_domain.WeightMeasurement
 
 class WeightMeasurementCacheDataSourceImpl
 constructor(
-    private val weightMeasurementDaoService: WeightMeasurementDaoService
+    private val weightMeasurementDao: WeightMeasurementDao
 ) : WeightMeasurementCacheDataSource {
 
     override suspend fun insertMeasurement(weightMeasurement: WeightMeasurement): Long {
-        return weightMeasurementDaoService.insertMeasurement(weightMeasurement)
+        return weightMeasurementDao.insertMeasurement(weightMeasurement.mapToEntity())
     }
 
     override suspend fun deleteMeasurement(weightMeasurement: WeightMeasurement): Int {
-        return weightMeasurementDaoService.deleteMeasurement(weightMeasurement)
+        return weightMeasurementDao.deleteMeasurement(weightMeasurement.mapToEntity())
     }
 
     override suspend fun updateMeasurement(weightMeasurement: WeightMeasurement): Int {
-        return weightMeasurementDaoService.updateMeasurement(weightMeasurement)
+        return weightMeasurementDao.updateMeasurement(weightMeasurement.mapToEntity())
     }
 
     override suspend fun loadAllWeightMeasurements(): List<WeightMeasurement> {
-        return weightMeasurementDaoService.loadAllWeightMeasurements()
+        return weightMeasurementDao.loadAllWeightMeasurements().map {
+            it.mapFromEntity()
+        }
     }
 
     override suspend fun getMeasurement(id: Long): WeightMeasurement {
-        return weightMeasurementDaoService.getMeasurement(id)
+        return weightMeasurementDao.getMeasurement(id).mapFromEntity()
     }
 
     override suspend fun getLastMeasurement(): WeightMeasurement? {
-        return weightMeasurementDaoService.getLastMeasurement()
+        val measurement = weightMeasurementDao.getLastMeasurement()
+        return if (measurement != null) measurement.mapFromEntity() else null
     }
 
     override suspend fun getMeasurementByDate(date: Long): WeightMeasurement? {
-        return weightMeasurementDaoService.getMeasurementByDate(date)
+        val measurement = weightMeasurementDao.getMeasurementByDate(date)
+        return if (measurement != null) measurement.mapFromEntity() else null
     }
 }

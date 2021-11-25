@@ -1,8 +1,6 @@
-package com.onepercent.xweight.weight.weight_datasource.cache.room
+package com.onepercent.xweight.weight.weight_datasource.cache
 
 import androidx.room.*
-import com.onepercent.xweight.weight.weight_datasource.cache.room.WeightMeasurementEntity
-import com.onepercent.xweight.weight.weight_domain.WeightMeasurement
 
 @Dao
 interface WeightMeasurementDao {

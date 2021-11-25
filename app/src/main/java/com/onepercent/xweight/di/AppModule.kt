@@ -5,9 +5,7 @@ import androidx.room.Room
 import com.onepercent.xweight.core.XweightDatabase
 import com.onepercent.xweight.weight.weight_datasource.cache.WeightMeasurementCacheDataSource
 import com.onepercent.xweight.weight.weight_datasource.cache.WeightMeasurementCacheDataSourceImpl
-import com.onepercent.xweight.weight.weight_datasource.cache.room.WeightMeasurementDao
-import com.onepercent.xweight.weight.weight_datasource.cache.room.WeightMeasurementDaoService
-import com.onepercent.xweight.weight.weight_datasource.cache.room.WeightMeasurementDaoServiceImpl
+import com.onepercent.xweight.weight.weight_datasource.cache.WeightMeasurementDao
 import com.onepercent.xweight.weight.weight_interactors.*
 import dagger.Module
 import dagger.Provides
@@ -40,17 +38,10 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideWeightMeasurementDaoService(
-        weightMeasurementDao: WeightMeasurementDao
-    ): WeightMeasurementDaoService =
-        WeightMeasurementDaoServiceImpl(weightMeasurementDao)
-
-    @Provides
-    @Singleton
     fun provideWeightMeasurementCacheDataSource(
-        weightMeasurementDaoService: WeightMeasurementDaoService
+        weightMeasurementDao: WeightMeasurementDao
     ): WeightMeasurementCacheDataSource =
-        WeightMeasurementCacheDataSourceImpl(weightMeasurementDaoService)
+        WeightMeasurementCacheDataSourceImpl(weightMeasurementDao)
 
     @Provides
     @Singleton
