@@ -15,7 +15,7 @@ import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 @HiltViewModel
-class WeightListViewModel
+class HistoryScreenViewModel
 @Inject
 constructor(
     private val insertWeightMeasurement: InsertWeightMeasurement,
@@ -25,52 +25,52 @@ constructor(
     private val deleteMeasurement: DeleteMeasurement
 ) : ViewModel() {
 
-    val state: MutableState<WeightListState> = mutableStateOf(WeightListState())
+    val state: MutableState<HistoryScreenState> = mutableStateOf(HistoryScreenState())
 
     init {
-        onTriggerEvent(WeightListEvent.GetAllMeasurements)
+        onTriggerEvent(HistoryScreenEvent.GetAllMeasurements)
     }
 
-    fun onTriggerEvent(event: WeightListEvent) {
+    fun onTriggerEvent(event: HistoryScreenEvent) {
         when (event) {
-            is WeightListEvent.GetAllMeasurements -> {
+            is HistoryScreenEvent.GetAllMeasurements -> {
                 getMeasurements()
             }
-            is WeightListEvent.GetLastMeasurement -> {
+            is HistoryScreenEvent.GetLastMeasurement -> {
                 getLastMeasurement()
             }
 
-            is WeightListEvent.OnRemoveHeadFromQueue -> {
+            is HistoryScreenEvent.OnRemoveHeadFromQueue -> {
                 removeHeadMessage()
             }
-            is WeightListEvent.UpdateFabDialogState -> {
+            is HistoryScreenEvent.UpdateFabDialogState -> {
                 state.value = state.value.copy(
                     fabDialogState = event.uiComponentState,
                     measurementDate = System.currentTimeMillis()
                 )
             }
 
-            is WeightListEvent.UpdateEditMeasurementDialogState -> {
+            is HistoryScreenEvent.UpdateEditMeasurementDialogState -> {
                 state.value = state.value.copy(
                     editMeasurementDialogState = event.uiComponentState
                 )
             }
 
-            is WeightListEvent.InsertWeightMeasurement -> {
+            is HistoryScreenEvent.InsertWeightMeasurement -> {
                 insertWeightMeasurement(event.weightMeasurement)
             }
 
-            is WeightListEvent.DeleteWeightMeasurement -> {
+            is HistoryScreenEvent.DeleteWeightMeasurement -> {
                 deleteWeightMeasurement(event.date)
             }
 
-            is WeightListEvent.PickDateForNewMeasurement -> {
+            is HistoryScreenEvent.PickDateForNewMeasurement -> {
                 state.value = state.value.copy(measurementDate = event.date)
             }
-            is WeightListEvent.PickValueForNewMeasurement -> {
+            is HistoryScreenEvent.PickValueForNewMeasurement -> {
                 state.value = state.value.copy(measurementValue = event.weight)
             }
-            is WeightListEvent.PickMeasurementForEdit -> {
+            is HistoryScreenEvent.PickMeasurementForEdit -> {
                 state.value = state.value.copy(measurementDate = event.date, measurementValue = event.weight)
             }
         }

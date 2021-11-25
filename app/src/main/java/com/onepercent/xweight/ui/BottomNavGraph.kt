@@ -9,8 +9,8 @@ import androidx.navigation.compose.composable
 import com.onepercent.xweight.home.ui_homeScreen.HomeScreen
 import com.onepercent.xweight.home.ui_homeScreen.HomeScreenViewModel
 import com.onepercent.xweight.ui.navigation.BottomBarScreen
-import com.onepercent.xweight.weight.ui_weightList.ui.WeightList
-import com.onepercent.xweight.weight.ui_weightList.ui.WeightListViewModel
+import com.onepercent.xweight.weight.ui_weightList.ui.HistoryScreen
+import com.onepercent.xweight.weight.ui_weightList.ui.HistoryScreenViewModel
 
 @Composable
 fun BottomNavGraph(navController: NavHostController) {
@@ -37,11 +37,11 @@ fun NavGraphBuilder.homeScreen() {
 
 fun NavGraphBuilder.historyScreen() {
     composable(route = BottomBarScreen.History.route) {
-        val weightListViewModel: WeightListViewModel = hiltViewModel()
+        val historyScreenViewModel: HistoryScreenViewModel = hiltViewModel()
 
-        WeightList(
-            state = weightListViewModel.state.value,
-            events = weightListViewModel::onTriggerEvent,
+        HistoryScreen(
+            state = historyScreenViewModel.state.value,
+            events = historyScreenViewModel::onTriggerEvent,
         )
     }
 }

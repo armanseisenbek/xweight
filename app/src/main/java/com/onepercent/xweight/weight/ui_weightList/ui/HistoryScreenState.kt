@@ -6,7 +6,7 @@ import com.onepercent.xweight.core.domain.UIComponent
 import com.onepercent.xweight.core.domain.UIComponentState
 import com.onepercent.xweight.weight.weight_domain.WeightMeasurement
 
-data class WeightListState(
+data class HistoryScreenState(
     val progressBarState: ProgressBarState = ProgressBarState.Idle,
     val messageQueue: Queue<UIComponent> = Queue(mutableListOf()),
 
