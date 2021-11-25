@@ -6,8 +6,9 @@ import androidx.compose.material.Text
 import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.onepercent.xweight.ui.theme.XweightTheme
 import com.onepercent.xweight.weight.ui_weightList.components.insert_dialog.MeasurementNumberPicker
 import com.onepercent.xweight.weight.weight_domain.WeightMeasurement
 import java.text.SimpleDateFormat
@@ -34,6 +35,7 @@ fun EditMeasurementDialog(
         },
         buttons = {
 
+            // Date
             Row(
                 modifier = Modifier.fillMaxWidth().padding(10.dp),
                 horizontalArrangement = Arrangement.Center,
@@ -47,7 +49,6 @@ fun EditMeasurementDialog(
 
             // Number picker
             MeasurementNumberPicker(
-                context = LocalContext.current,
                 onPickValue = onPickValue,
                 lastMeasurement = measurementValue
             )
@@ -86,4 +87,19 @@ fun EditMeasurementDialog(
 
         }
     )
+}
+
+@Preview
+@Composable
+fun EditMeasurementDialogPreview() {
+    XweightTheme {
+        EditMeasurementDialog(
+            onInsertWeightMeasurement = {},
+            onDeleteMeasurement = {},
+            onPickValue = {},
+            onCloseDialog = {},
+            measurementDate = 0,
+            measurementValue = 67.5
+        )
+    }
 }

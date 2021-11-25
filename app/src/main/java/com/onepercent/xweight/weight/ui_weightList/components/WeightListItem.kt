@@ -11,7 +11,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.onepercent.xweight.ui.theme.XweightTheme
 import com.onepercent.xweight.weight.weight_domain.WeightMeasurement
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
@@ -89,16 +91,16 @@ fun WeightListItem(
             }
         )
     }
+}
 
-
-
-//    val dividerColor =  when {
-//        difference > 0 -> Color(0xffcfe8cf)
-//        difference < 0 -> Color(0xffe8cfcf)
-//        else -> MaterialTheme.colors.background
-//    }
-//    Divider(
-//        //modifier = Modifier.background(Color.Black),
-//        thickness = 1.dp,
-//        color = dividerColor)
+@Preview
+@Composable
+fun WeightListItemPreview() {
+    XweightTheme {
+        WeightListItem(
+            weightMeasurement = WeightMeasurement(0, 67.5, 0),
+            previousMeasurement = WeightMeasurement(0, 67.0, 0),
+            onSelectMeasurement = { _, _ -> }
+        )
+    }
 }

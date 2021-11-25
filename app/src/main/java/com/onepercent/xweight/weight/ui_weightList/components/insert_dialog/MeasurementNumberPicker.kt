@@ -1,6 +1,5 @@
 package com.onepercent.xweight.weight.ui_weightList.components.insert_dialog
 
-import android.content.Context
 import android.widget.NumberPicker
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
@@ -9,12 +8,13 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
+import com.onepercent.xweight.ui.theme.XweightTheme
 
 @Composable
 fun MeasurementNumberPicker(
-    context: Context,
     onPickValue: (Double) -> Unit,
     lastMeasurement: Double
 ) {
@@ -66,4 +66,15 @@ fun MeasurementNumberPicker(
         //Text( modifier = Modifier.padding(3.dp), text = "kg")
     }
 
+}
+
+@Preview
+@Composable
+fun MeasurementNumberPickerPreview() {
+    XweightTheme {
+        MeasurementNumberPicker(
+            onPickValue = {},
+            lastMeasurement = 67.5
+        )
+    }
 }
