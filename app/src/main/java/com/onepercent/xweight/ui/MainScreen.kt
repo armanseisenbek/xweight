@@ -1,9 +1,12 @@
 package com.onepercent.xweight.ui
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
@@ -17,8 +20,10 @@ fun MainScreen() {
     val navController = rememberNavController()
     
     Scaffold(
-        content = {
-            BottomNavGraph(navController = navController)
+        content = { innerPadding ->
+            Box(modifier = Modifier.padding(innerPadding)) {
+                BottomNavGraph(navController = navController)
+            }
         },
         bottomBar = {
             BottomBar(navController = navController)

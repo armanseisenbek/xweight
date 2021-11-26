@@ -8,9 +8,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.onepercent.xweight.core.domain.UIComponentState
 import com.onepercent.xweight.ui.components.DefaultScreenUI
 import com.onepercent.xweight.ui.theme.XweightTheme
-import com.onepercent.xweight.weight.ui_weightList.components.EditMeasurementDialog
-import com.onepercent.xweight.weight.ui_weightList.components.HistoryScreenTopBar
-import com.onepercent.xweight.weight.ui_weightList.components.MeasurementHistoryList
+import com.onepercent.xweight.ui.history.components.EditMeasurementDialog
+import com.onepercent.xweight.ui.history.components.HistoryScreenTopBar
+import com.onepercent.xweight.ui.history.components.MeasurementHistoryList
 import com.onepercent.xweight.ui.history.HistoryScreenEvent.*
 import com.onepercent.xweight.weight.weight_domain.WeightMeasurement
 

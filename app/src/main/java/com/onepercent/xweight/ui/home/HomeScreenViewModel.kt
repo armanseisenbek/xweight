@@ -7,7 +7,10 @@ import androidx.lifecycle.viewModelScope
 import com.onepercent.xweight.core.domain.DataState
 import com.onepercent.xweight.core.domain.Queue
 import com.onepercent.xweight.core.domain.UIComponent
+import com.onepercent.xweight.weight.weight_domain.WeightMeasurement
 import com.onepercent.xweight.weight.weight_interactors.GetAllMeasurements
+import com.onepercent.xweight.weight.weight_interactors.GetLastMeasurement
+import com.onepercent.xweight.weight.weight_interactors.InsertWeightMeasurement
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -18,6 +21,8 @@ class HomeScreenViewModel
 @Inject
 constructor(
     private val getAllMeasurements: GetAllMeasurements,
+    private val getLastMeasurement: GetLastMeasurement,
+    private val insertWeightMeasurement: InsertWeightMeasurement,
 ) : ViewModel() {
 
     val state: MutableState<HomeScreenState> = mutableStateOf(HomeScreenState())
@@ -28,11 +33,26 @@ constructor(
 
     fun onTriggerEvent(event: HomeScreenEvent) {
         when (event) {
+            is HomeScreenEvent.OnRemoveHeadFromQueue -> {
+                removeHeadMessage()
+            }
             is HomeScreenEvent.GetAllMeasurements -> {
                 getMeasurements()
             }
-            is HomeScreenEvent.OnRemoveHeadFromQueue -> {
-                removeHeadMessage()
+            is HomeScreenEvent.GetLastMeasurement -> {
+                getLastMeasurement()
+            }
+            is HomeScreenEvent.UpdateInsertDialogState -> {
+                state.value = state.value.copy(insertDialogState = event.uiComponentState)
+            }
+            is HomeScreenEvent.PickDateForNewMeasurement -> {
+                state.value = state.value.copy(newMeasurementDate = event.date)
+            }
+            is HomeScreenEvent.PickValueForNewMeasurement -> {
+                state.value = state.value.copy(newMeasurementValue = event.weight)
+            }
+            is HomeScreenEvent.InsertWeightMeasurement -> {
+                insertWeightMeasurement(event.weightMeasurement)
             }
         }
     }
@@ -61,6 +81,52 @@ constructor(
             }
         }.launchIn(viewModelScope)
     }
+
+    private fun getLastMeasurement() {
+        getLastMeasurement.execute().onEach { dataState ->
+            when(dataState){
+                is DataState.Loading -> {
+                    state.value = state.value.copy(progressBarState = dataState.progressBarState)
+                }
+                is DataState.Data -> {
+                    if (dataState.data != null) {
+                        state.value = state.value.copy(newMeasurementValue = dataState.data.weight)
+                    }
+                }
+                is DataState.Response -> {
+                    if(dataState.uiComponent is UIComponent.None){
+                        println("getLastMeasurement: ${(dataState.uiComponent as UIComponent.None).message}")
+                    }
+                    else{
+                        appendToMessageQueue(dataState.uiComponent)
+                    }
+                }
+            }
+        }.launchIn(viewModelScope)
+    }
+
+    private fun insertWeightMeasurement(weightMeasurement: WeightMeasurement) {
+        insertWeightMeasurement
+            .execute(weightMeasurement.weight, weightMeasurement.date)
+            .onEach { dataState ->
+                when (dataState) {
+                    is DataState.Loading -> {
+                        state.value = state.value.copy(progressBarState = dataState.progressBarState)
+                    }
+                    is DataState.Data -> {
+                        getMeasurements()
+                    }
+                    is DataState.Response -> {
+                        if (dataState.uiComponent is UIComponent.None) {
+                            println("insertWeightMeasurement ${(dataState.uiComponent as UIComponent.None).message}")
+                        } else{
+                            appendToMessageQueue(dataState.uiComponent)
+                        }
+                    }
+                }
+            }.launchIn(viewModelScope)
+    }
+
 
     private fun appendToMessageQueue(uiComponent: UIComponent){
         val queue = state.value.messageQueue

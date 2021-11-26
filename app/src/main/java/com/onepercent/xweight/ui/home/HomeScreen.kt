@@ -1,16 +1,19 @@
 package com.onepercent.xweight.ui.home
 
-import android.widget.Toast
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import com.onepercent.xweight.core.domain.UIComponent
-import com.onepercent.xweight.ui.components.GenericDialog
+import com.onepercent.xweight.core.domain.UIComponentState
+import com.onepercent.xweight.ui.components.DefaultScreenUI
+import com.onepercent.xweight.ui.home.components.InsertMeasurementDialog
+import com.onepercent.xweight.ui.home.components.LinearWeightChart
 
 @Composable
 fun HomeScreen(
@@ -18,76 +21,79 @@ fun HomeScreen(
     events: (HomeScreenEvent) -> Unit,
 ) {
 
-    val scaffoldState = rememberScaffoldState()
-
-    Scaffold(
-        scaffoldState = scaffoldState,
-        topBar = {
-
-        },
-        content = {
-            BoxWithConstraints(
-                modifier = Modifier.fillMaxSize()
-            ) {
-
-                LinearWeightChart(
+    DefaultScreenUI(
+        progressBarState = state.progressBarState,
+        queue = state.messageQueue,
+        onRemoveHeadFromQueue = {
+            events(HomeScreenEvent.OnRemoveHeadFromQueue)
+        }
+    ) {
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxSize()
+                .border(13.dp, Color.Black)
+                .padding(10.dp)
+        ) {
+            item {
+                Column(
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(10.dp)
+                        .fillParentMaxHeight()
                         .border(1.dp, Color.Black)
-                        .padding(10.dp)
-                        .fillMaxHeight(fraction = 0.4f),
-                    measurements = state.weightMeasurements
-                )
-
-                //            FloatingActionButton(
-//                onClick = {
-//                    events(HistoryScreenEvent.GetLastMeasurement)
-//                    events(HistoryScreenEvent.UpdateFabDialogState(UIComponentState.Show))
-//                }
-//            ) {
-//                Icon(
-//                    imageVector = Icons.Filled.Add,
-//                    contentDescription = "add new weight measurement"
-//                )
-//            }
-//                if (state.fabDialogState is UIComponentState.Show) {
-//                    InsertMeasurementDialog(
-//                        onInsertWeightMeasurement = { events(HistoryScreenEvent.InsertWeightMeasurement(it)) },
-//                        onPickDate = { events(HistoryScreenEvent.PickDateForNewMeasurement(it)) },
-//                        onPickValue = { events(HistoryScreenEvent.PickValueForNewMeasurement(it)) },
-//                        onCloseDialog = { events(
-//                            HistoryScreenEvent.UpdateFabDialogState(
-//                                UIComponentState.Hide)) },
-//                        measurementDate = state.measurementDate,
-//                        measurementValue = state.measurementValue
-//                    )
-//                }
+                        .padding(4.dp)
+                ) {
+                    LinearWeightChart(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .border(1.dp, Color.Black)
+                            .padding(10.dp)
+                            .fillMaxHeight(fraction = 0.4f),
+                        measurements = state.weightMeasurements
+                    )
 
 
-                // process the queue
-                if(!state.messageQueue.isEmpty()){
-                    state.messageQueue.peek()?.let { uiComponent ->
-                        if(uiComponent is UIComponent.Dialog){
-                            GenericDialog(
-                                modifier = Modifier
-                                    .fillMaxWidth(0.9f)
-                                ,
-                                title = uiComponent.title,
-                                description = uiComponent.description,
-                                onRemoveHeadFromQueue = {
-                                    events(HomeScreenEvent.OnRemoveHeadFromQueue)
-                                }
-                            )
-                        }
-                        else if (uiComponent is UIComponent.Toast) {
-                            Toast.makeText(LocalContext.current, uiComponent.message, Toast.LENGTH_SHORT).show()
-                            events(HomeScreenEvent.OnRemoveHeadFromQueue)
-                        }
-
-                    }
                 }
             }
-        },
-    )
+        }
+
+        Column(
+            Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Spacer(modifier = Modifier.weight(1f))
+
+            Button(
+                modifier = Modifier
+                    .padding(10.dp)
+                    .fillMaxWidth(0.7f)
+                ,
+                shape = RoundedCornerShape(40.dp),
+                onClick = {
+                    events(HomeScreenEvent.GetLastMeasurement)
+                    events(HomeScreenEvent.UpdateInsertDialogState(UIComponentState.Show))
+                },
+            ) {
+                Text(modifier = Modifier.padding(vertical = 6.dp), text = "NEW WEIGHT")
+            }
+        }
+
+        if (state.insertDialogState is UIComponentState.Show) {
+            InsertMeasurementDialog(
+                onInsertWeightMeasurement = {
+                    events(HomeScreenEvent.InsertWeightMeasurement(it))
+                },
+                onPickDate = {
+                    events(HomeScreenEvent.PickDateForNewMeasurement(it))
+                },
+                onPickValue = {
+                    events(HomeScreenEvent.PickValueForNewMeasurement(it))
+                },
+                onCloseDialog = {
+                    events(HomeScreenEvent.UpdateInsertDialogState(UIComponentState.Hide))
+                },
+                measurementDate = state.newMeasurementDate,
+                measurementValue = state.newMeasurementValue
+            )
+        }
+    }
 }

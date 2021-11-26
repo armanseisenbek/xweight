@@ -20,7 +20,6 @@ class HistoryScreenViewModel
 constructor(
     private val insertWeightMeasurement: InsertWeightMeasurement,
     private val getAllMeasurements: GetAllMeasurements,
-    private val getLastMeasurement: GetLastMeasurement,
     private val sortMeasurements: SortMeasurements,
     private val deleteMeasurement: DeleteMeasurement
 ) : ViewModel() {
@@ -36,42 +35,28 @@ constructor(
             is HistoryScreenEvent.GetAllMeasurements -> {
                 getMeasurements()
             }
-            is HistoryScreenEvent.GetLastMeasurement -> {
-                getLastMeasurement()
-            }
-
             is HistoryScreenEvent.OnRemoveHeadFromQueue -> {
                 removeHeadMessage()
             }
-            is HistoryScreenEvent.UpdateFabDialogState -> {
-                state.value = state.value.copy(
-                    fabDialogState = event.uiComponentState,
-                    measurementDate = System.currentTimeMillis()
-                )
-            }
-
             is HistoryScreenEvent.UpdateEditMeasurementDialogState -> {
                 state.value = state.value.copy(
                     editMeasurementDialogState = event.uiComponentState
                 )
             }
-
             is HistoryScreenEvent.InsertWeightMeasurement -> {
                 insertWeightMeasurement(event.weightMeasurement)
             }
-
             is HistoryScreenEvent.DeleteWeightMeasurement -> {
                 deleteWeightMeasurement(event.date)
-            }
-
-            is HistoryScreenEvent.PickDateForNewMeasurement -> {
-                state.value = state.value.copy(measurementDate = event.date)
             }
             is HistoryScreenEvent.PickValueForNewMeasurement -> {
                 state.value = state.value.copy(measurementValue = event.weight)
             }
             is HistoryScreenEvent.PickMeasurementForEdit -> {
-                state.value = state.value.copy(measurementDate = event.date, measurementValue = event.weight)
+                state.value = state.value.copy(
+                    measurementDate = event.date,
+                    measurementValue = event.weight
+                )
             }
         }
     }
@@ -111,29 +96,6 @@ constructor(
                 is DataState.Response -> {
                     if(dataState.uiComponent is UIComponent.None){
                         println("getAllMeasurements: ${(dataState.uiComponent as UIComponent.None).message}")
-                    }
-                    else{
-                        appendToMessageQueue(dataState.uiComponent)
-                    }
-                }
-            }
-        }.launchIn(viewModelScope)
-    }
-
-    private fun getLastMeasurement() {
-        getLastMeasurement.execute().onEach { dataState ->
-            when(dataState){
-                is DataState.Loading -> {
-                    state.value = state.value.copy(progressBarState = dataState.progressBarState)
-                }
-                is DataState.Data -> {
-                    if (dataState.data != null) {
-                        state.value = state.value.copy(measurementValue = dataState.data.weight)
-                    }
-                }
-                is DataState.Response -> {
-                    if(dataState.uiComponent is UIComponent.None){
-                        println("getLastMeasurement: ${(dataState.uiComponent as UIComponent.None).message}")
                     }
                     else{
                         appendToMessageQueue(dataState.uiComponent)

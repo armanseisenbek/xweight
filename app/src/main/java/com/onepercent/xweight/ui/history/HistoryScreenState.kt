@@ -14,6 +14,5 @@ data class HistoryScreenState(
     val measurementDate: Long = System.currentTimeMillis(),
     val measurementValue: Double = 0.0,
 
-    val fabDialogState: UIComponentState = UIComponentState.Hide, // show/hide the fab dialog
     val editMeasurementDialogState: UIComponentState = UIComponentState.Hide, // show/hide the edit dialog
 )
