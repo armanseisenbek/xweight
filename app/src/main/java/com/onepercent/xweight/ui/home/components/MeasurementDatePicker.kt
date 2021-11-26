@@ -1,4 +1,4 @@
-package com.onepercent.xweight.weight.ui_weightList.components.insert_dialog
+package com.onepercent.xweight.ui.home.components
 
 import android.app.DatePickerDialog
 import android.widget.DatePicker

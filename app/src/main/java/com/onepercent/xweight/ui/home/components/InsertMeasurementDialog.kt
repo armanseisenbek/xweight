@@ -1,4 +1,4 @@
-package com.onepercent.xweight.weight.ui_weightList.components.insert_dialog
+package com.onepercent.xweight.ui.home.components
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.AlertDialog
@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.onepercent.xweight.ui.theme.XweightTheme
+import com.onepercent.xweight.ui.components.MeasurementNumberPicker
 import com.onepercent.xweight.weight.weight_domain.WeightMeasurement
 
 @Composable

@@ -1,4 +1,4 @@
-package com.onepercent.xweight.ui.home
+package com.onepercent.xweight.ui.home.components
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.runtime.Composable

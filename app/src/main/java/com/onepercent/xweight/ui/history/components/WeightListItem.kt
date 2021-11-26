@@ -1,4 +1,4 @@
-package com.onepercent.xweight.weight.ui_weightList.components
+package com.onepercent.xweight.ui.history.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable

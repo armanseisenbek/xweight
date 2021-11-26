@@ -1,4 +1,4 @@
-package com.onepercent.xweight.weight.ui_weightList.components.insert_dialog
+package com.onepercent.xweight.ui.components
 
 import android.widget.NumberPicker
 import androidx.compose.foundation.layout.*
