@@ -10,6 +10,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.onepercent.xweight.core.domain.ProgressBarState
 import com.onepercent.xweight.core.domain.UIComponentState
 import com.onepercent.xweight.ui.components.DefaultScreenUI
 import com.onepercent.xweight.ui.home.components.InsertMeasurementDialog
@@ -78,22 +79,24 @@ fun HomeScreen(
         }
 
         if (state.insertDialogState is UIComponentState.Show) {
-            InsertMeasurementDialog(
-                onInsertWeightMeasurement = {
-                    events(HomeScreenEvent.InsertWeightMeasurement(it))
-                },
-                onPickDate = {
-                    events(HomeScreenEvent.PickDateForNewMeasurement(it))
-                },
-                onPickValue = {
-                    events(HomeScreenEvent.PickValueForNewMeasurement(it))
-                },
-                onCloseDialog = {
-                    events(HomeScreenEvent.UpdateInsertDialogState(UIComponentState.Hide))
-                },
-                measurementDate = state.newMeasurementDate,
-                measurementValue = state.newMeasurementValue
-            )
+            if (state.progressBarState != ProgressBarState.Loading) {
+                InsertMeasurementDialog(
+                    onInsertWeightMeasurement = {
+                        events(HomeScreenEvent.InsertWeightMeasurement(it))
+                    },
+                    onPickDate = {
+                        events(HomeScreenEvent.PickDateForNewMeasurement(it))
+                    },
+                    onPickValue = {
+                        events(HomeScreenEvent.PickValueForNewMeasurement(it))
+                    },
+                    onCloseDialog = {
+                        events(HomeScreenEvent.UpdateInsertDialogState(UIComponentState.Hide))
+                    },
+                    measurementDate = state.newMeasurementDate,
+                    measurementValue = state.newMeasurementValue
+                )
+            }
         }
     }
 }
