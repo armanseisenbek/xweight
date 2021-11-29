@@ -43,7 +43,10 @@ constructor(
                 getLastMeasurement()
             }
             is HomeScreenEvent.UpdateInsertDialogState -> {
-                state.value = state.value.copy(insertDialogState = event.uiComponentState)
+                state.value = state.value.copy(
+                    insertDialogState = event.uiComponentState,
+                    newMeasurementDate = System.currentTimeMillis()
+                )
             }
             is HomeScreenEvent.PickDateForNewMeasurement -> {
                 state.value = state.value.copy(newMeasurementDate = event.date)
