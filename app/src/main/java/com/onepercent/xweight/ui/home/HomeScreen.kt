@@ -14,7 +14,7 @@ import com.onepercent.xweight.core.domain.ProgressBarState
 import com.onepercent.xweight.core.domain.UIComponentState
 import com.onepercent.xweight.ui.components.DefaultScreenUI
 import com.onepercent.xweight.ui.home.components.InsertMeasurementDialog
-import com.onepercent.xweight.ui.home.components.LinearWeightChart
+import com.onepercent.xweight.ui.home.components.LineChartDashboard
 
 @Composable
 fun HomeScreen(
@@ -32,25 +32,21 @@ fun HomeScreen(
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .border(13.dp, Color.Black)
+                //.border(10.dp, Color.Black)
                 .padding(10.dp)
         ) {
             item {
                 Column(
                     modifier = Modifier
                         .fillParentMaxHeight()
-                        .border(1.dp, Color.Black)
+                        //.border(1.dp, Color.Black)
                         .padding(4.dp)
                 ) {
-                    LinearWeightChart(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .border(1.dp, Color.Black)
-                            .padding(10.dp)
-                            .fillMaxHeight(fraction = 0.4f),
-                        measurements = state.weightMeasurements
-                    )
 
+                    LineChartDashboard(
+                        progressBarState = state.progressBarState,
+                        weightMeasurements = state.weightMeasurements
+                    )
 
                 }
             }
