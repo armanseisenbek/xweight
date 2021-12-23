@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">xweight</string>
+
+    <string name="last_2_weeks">Last 2 weeks</string>
+    <string name="last_30_days">Last 30 days</string>
+    <string name="last_90_days">Last 90 days</string>
+    <string name="year">Year</string>
+
+    <string-array
+        name="line_chart_filter_labels">
+        <item>@string/last_2_weeks</item>
+        <item>@string/last_30_days</item>
+        <item>@string/last_90_days</item>
+        <item>@string/year</item>
+    </string-array>
 </resources>

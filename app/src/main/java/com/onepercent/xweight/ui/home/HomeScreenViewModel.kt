@@ -57,6 +57,11 @@ constructor(
             is HomeScreenEvent.InsertWeightMeasurement -> {
                 insertWeightMeasurement(event.weightMeasurement)
             }
+            is HomeScreenEvent.PickLineChartFilter -> {
+                state.value = state.value.copy(
+                    lineChartFilterValue = event.lineChartFilter
+                )
+            }
         }
     }
 
@@ -64,7 +69,7 @@ constructor(
         getAllMeasurements.execute().onEach { dataState ->
             when(dataState){
                 is DataState.Loading -> {
-                    state.value = state.value.copy(progressBarState = dataState.progressBarState)
+                    state.value = state.value.copy(lineChartProgressBarState = dataState.progressBarState)
                 }
                 is DataState.Data -> {
                     // sorted by ascending

@@ -13,9 +13,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+
+import com.onepercent.xweight.core.util.formatWeight
 import com.onepercent.xweight.ui.theme.XweightTheme
 import com.onepercent.xweight.weight.weight_domain.WeightMeasurement
-import java.text.DecimalFormat
+
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -71,11 +73,7 @@ fun WeightListItem(
                 )
 
                 // Difference
-                var differenceStr = DecimalFormat("#.##")
-                    .format(difference)
-                    .replace(",", ".")
-                    .toDouble()
-                    .toString()
+                var differenceStr = difference.formatWeight()
 
                 if (difference > 0) {
                     differenceStr = "+$differenceStr"
