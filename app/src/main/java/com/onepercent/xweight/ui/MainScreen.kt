@@ -71,10 +71,13 @@ fun RowScope.AddItem(
             it.route == screen.route
         } == true,
         onClick = {
-            navController.navigate(screen.route) {
-                popUpTo(navController.graph.findStartDestination().id)
-                launchSingleTop = true
+            if (screen.route != currentDestination?.route) { // prevent updating the same page
+                navController.navigate(screen.route) {
+                    popUpTo(navController.graph.findStartDestination().id)
+                    launchSingleTop = true
+                }
             }
+
         }
     )
 }
