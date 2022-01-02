@@ -1,4 +1,4 @@
-package com.onepercent.xweight.ui.home.components.line_chart
+package com.onepercent.xweight.ui.main.components.content.line_chart
 
 import androidx.annotation.StringRes
 import com.onepercent.xweight.R

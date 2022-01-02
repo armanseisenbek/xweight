@@ -1,4 +1,4 @@
-package com.onepercent.xweight.ui.home.components.line_chart
+package com.onepercent.xweight.ui.main.components.content.line_chart
 
 import android.graphics.Typeface
 
@@ -6,6 +6,7 @@ import androidx.compose.ui.graphics.Paint
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
 import androidx.compose.ui.graphics.nativeCanvas
+
 import com.onepercent.xweight.core.util.Constants.Companion.ONE_DAY_IN_MILLIS
 
 import java.text.SimpleDateFormat

@@ -1,9 +1,10 @@
-package com.onepercent.xweight.ui.home
+package com.onepercent.xweight.ui.main
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+
 import com.onepercent.xweight.core.domain.DataState
 import com.onepercent.xweight.core.domain.Queue
 import com.onepercent.xweight.core.domain.UIComponent
@@ -17,7 +18,7 @@ import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeScreenViewModel
+class MainScreenViewModel
 @Inject
 constructor(
     private val getAllMeasurements: GetAllMeasurements,
@@ -25,39 +26,40 @@ constructor(
     private val insertWeightMeasurement: InsertWeightMeasurement,
 ) : ViewModel() {
 
-    val state: MutableState<HomeScreenState> = mutableStateOf(HomeScreenState())
+    val state: MutableState<MainScreenState> = mutableStateOf(MainScreenState())
 
     init {
-        onTriggerEvent(HomeScreenEvent.GetAllMeasurements)
+        onTriggerEvent(MainScreenEvent.GetAllMeasurements)
+        onTriggerEvent(MainScreenEvent.GetLastMeasurement)
     }
 
-    fun onTriggerEvent(event: HomeScreenEvent) {
+    fun onTriggerEvent(event: MainScreenEvent) {
         when (event) {
-            is HomeScreenEvent.OnRemoveHeadFromQueue -> {
+            is MainScreenEvent.OnRemoveHeadFromQueue -> {
                 removeHeadMessage()
             }
-            is HomeScreenEvent.GetAllMeasurements -> {
+            is MainScreenEvent.GetAllMeasurements -> {
                 getMeasurements()
             }
-            is HomeScreenEvent.GetLastMeasurement -> {
+            is MainScreenEvent.GetLastMeasurement -> {
                 getLastMeasurement()
             }
-            is HomeScreenEvent.UpdateInsertDialogState -> {
+            is MainScreenEvent.UpdateInsertDialogState -> {
                 state.value = state.value.copy(
                     insertDialogState = event.uiComponentState,
                     newMeasurementDate = System.currentTimeMillis()
                 )
             }
-            is HomeScreenEvent.PickDateForNewMeasurement -> {
+            is MainScreenEvent.PickDateForNewMeasurement -> {
                 state.value = state.value.copy(newMeasurementDate = event.date)
             }
-            is HomeScreenEvent.PickValueForNewMeasurement -> {
+            is MainScreenEvent.PickValueForNewMeasurement -> {
                 state.value = state.value.copy(newMeasurementValue = event.weight)
             }
-            is HomeScreenEvent.InsertWeightMeasurement -> {
+            is MainScreenEvent.InsertWeightMeasurement -> {
                 insertWeightMeasurement(event.weightMeasurement)
             }
-            is HomeScreenEvent.PickLineChartFilter -> {
+            is MainScreenEvent.PickLineChartFilter -> {
                 state.value = state.value.copy(
                     lineChartFilterValue = event.lineChartFilter
                 )

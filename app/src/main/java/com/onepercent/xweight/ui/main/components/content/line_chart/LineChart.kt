@@ -1,4 +1,4 @@
-package com.onepercent.xweight.ui.home.components
+package com.onepercent.xweight.ui.main.components.content.line_chart
 
 import android.util.Log
 import androidx.compose.foundation.Canvas
@@ -8,14 +8,12 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.*
 import androidx.compose.ui.graphics.drawscope.Stroke
 
-import com.onepercent.xweight.ui.home.components.line_chart.LineChartUtils.calculateXAxisCoordinate
-import com.onepercent.xweight.ui.home.components.line_chart.LineChartUtils.calculateYAxisCoordinate
-import com.onepercent.xweight.ui.home.components.line_chart.XAxisLabelDrawer
-import com.onepercent.xweight.ui.home.components.line_chart.YAxisLabelDrawer
+import com.onepercent.xweight.ui.main.components.content.line_chart.LineChartUtils.calculateXAxisCoordinate
+import com.onepercent.xweight.ui.main.components.content.line_chart.LineChartUtils.calculateYAxisCoordinate
 import com.onepercent.xweight.weight.weight_domain.WeightMeasurement
 
 @Composable
-fun LinearWeightChart(
+fun LineChart(
     modifier: Modifier = Modifier,
     measurements: List<WeightMeasurement>,
     maxMeasurement: Double,
@@ -26,6 +24,8 @@ fun LinearWeightChart(
     xAxisLabelDrawer: XAxisLabelDrawer = XAxisLabelDrawer(),
     yAxisLabelDrawer: YAxisLabelDrawer = YAxisLabelDrawer()
 ) {
+
+    Log.d("LineWeightChart", "LineWeightChart: recompose")
 
     Canvas(
         modifier = modifier,
@@ -83,7 +83,7 @@ fun LinearWeightChart(
                 // draw lines and fill areas
                 if (measurements.size >= index + 2) {
 
-                    val xEnd =  calculateXAxisCoordinate(
+                    val xEnd = calculateXAxisCoordinate(
                         date = measurements[index + 1].date,
                         startDate = startDate,
                         lineDistance = lineDistance

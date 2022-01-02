@@ -67,6 +67,10 @@ dependencies {
     implementation "androidx.navigation:navigation-compose:2.4.0-beta02"
     implementation "androidx.hilt:hilt-navigation-compose:1.0.0-beta01"
 
+    // navigation animation
+    def nav_animation_version = "0.22.0-rc"
+    implementation "com.google.accompanist:accompanist-navigation-animation:$nav_animation_version"
+
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.0'
     implementation 'androidx.activity:activity-compose:1.4.0'
 
