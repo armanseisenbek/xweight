@@ -58,6 +58,8 @@ fun LineChart(
                 days = days.toLong()
             )
 
+            val path = Path()
+
             measurements.forEachIndexed { index, weightMeasurement ->
 
                 val xStart = calculateXAxisCoordinate(
@@ -72,6 +74,10 @@ fun LineChart(
                     currentValue = weightMeasurement.weight,
                     chartHeight = chartHeight
                 )
+
+                if (index == 0) {
+                    path.moveTo(xStart, yStart)
+                }
 
                 // circle dots
                 drawCircle(
@@ -104,22 +110,36 @@ fun LineChart(
                         strokeWidth = Stroke.DefaultMiter
                     )
 
-                    // chart filled areas
-                    drawPath(
-                        path = Path().apply {
-                            fillType = PathFillType.EvenOdd
-                            moveTo(xStart, yStart)
-                            lineTo(xEnd, yEnd)
-                            lineTo(xEnd, chartHeight)
-                            lineTo(xStart, chartHeight)
-                            close()
-                        },
-                        color = chartColor,
-                        alpha = 0.6f
-                    )
-
+                    path.lineTo(xEnd, yEnd)
                 }
 
+            }
+
+            // chart filled areas
+            if (measurements.isNotEmpty()) {
+
+                val pathXEnd = calculateXAxisCoordinate(
+                    date = measurements[measurements.lastIndex].date,
+                    startDate = startDate,
+                    lineDistance = lineDistance
+                )
+
+                val pathXStart = calculateXAxisCoordinate(
+                    date = measurements[0].date,
+                    startDate = startDate,
+                    lineDistance = lineDistance
+                )
+
+                path.lineTo(pathXEnd, chartHeight)
+                path.lineTo(pathXStart, chartHeight)
+                path.fillType = PathFillType.EvenOdd
+                path.close()
+
+                drawPath(
+                    path = path,
+                    color = chartColor,
+                    alpha = 0.6f
+                )
             }
 
         }
