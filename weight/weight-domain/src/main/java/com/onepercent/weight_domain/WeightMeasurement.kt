@@ -1,4 +1,4 @@
-package com.onepercent.xweight.weight.weight_domain
+package com.onepercent.weight_domain
 
 data class WeightMeasurement(
     val id: Long = 0,
