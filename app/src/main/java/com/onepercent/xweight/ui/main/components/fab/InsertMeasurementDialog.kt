@@ -10,9 +10,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
+import com.onepercent.weight_domain.WeightMeasurement
+
 import com.onepercent.xweight.ui.theme.XweightTheme
 import com.onepercent.xweight.ui.components.MeasurementNumberPicker
-import com.onepercent.xweight.weight.weight_domain.WeightMeasurement
 
 @Composable
 fun InsertMeasurementDialog(

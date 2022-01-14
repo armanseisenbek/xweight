@@ -7,10 +7,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.*
 import androidx.compose.ui.graphics.drawscope.Stroke
+import com.onepercent.weight_domain.WeightMeasurement
 
 import com.onepercent.xweight.ui.main.components.content.line_chart.LineChartUtils.calculateXAxisCoordinate
 import com.onepercent.xweight.ui.main.components.content.line_chart.LineChartUtils.calculateYAxisCoordinate
-import com.onepercent.xweight.weight.weight_domain.WeightMeasurement
 
 @Composable
 fun LineChart(

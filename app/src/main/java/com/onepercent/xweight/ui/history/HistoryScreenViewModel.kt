@@ -4,10 +4,10 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.onepercent.weight_domain.WeightMeasurement
 import com.onepercent.xweight.core.domain.DataState
 import com.onepercent.xweight.core.domain.Queue
 import com.onepercent.xweight.core.domain.UIComponent
-import com.onepercent.xweight.weight.weight_domain.WeightMeasurement
 import com.onepercent.xweight.weight.weight_interactors.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn

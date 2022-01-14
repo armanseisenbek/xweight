@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.onepercent.weight_domain.WeightMeasurement
 
 import com.onepercent.xweight.core.domain.UIComponentState
 import com.onepercent.xweight.ui.components.DefaultScreenUI
@@ -12,7 +13,6 @@ import com.onepercent.xweight.ui.history.components.EditMeasurementDialog
 import com.onepercent.xweight.ui.history.components.HistoryScreenTopBar
 import com.onepercent.xweight.ui.history.components.MeasurementHistoryList
 import com.onepercent.xweight.ui.history.HistoryScreenEvent.*
-import com.onepercent.xweight.weight.weight_domain.WeightMeasurement
 
 @Composable
 fun HistoryScreen(

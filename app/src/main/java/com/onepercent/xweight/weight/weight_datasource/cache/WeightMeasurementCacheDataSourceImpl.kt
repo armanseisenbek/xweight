@@ -1,8 +1,8 @@
 package com.onepercent.xweight.weight.weight_datasource.cache
 
+import com.onepercent.weight_domain.WeightMeasurement
 import com.onepercent.xweight.weight.util.mapFromEntity
 import com.onepercent.xweight.weight.util.mapToEntity
-import com.onepercent.xweight.weight.weight_domain.WeightMeasurement
 
 class WeightMeasurementCacheDataSourceImpl
 constructor(

@@ -1,10 +1,10 @@
 package com.onepercent.xweight.ui.history
 
+import com.onepercent.weight_domain.WeightMeasurement
 import com.onepercent.xweight.core.domain.ProgressBarState
 import com.onepercent.xweight.core.domain.Queue
 import com.onepercent.xweight.core.domain.UIComponent
 import com.onepercent.xweight.core.domain.UIComponentState
-import com.onepercent.xweight.weight.weight_domain.WeightMeasurement
 
 data class HistoryScreenState(
     val progressBarState: ProgressBarState = ProgressBarState.Idle,

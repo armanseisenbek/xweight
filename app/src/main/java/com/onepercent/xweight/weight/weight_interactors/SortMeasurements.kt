@@ -1,6 +1,6 @@
 package com.onepercent.xweight.weight.weight_interactors
 
-import com.onepercent.xweight.weight.weight_domain.WeightMeasurement
+import com.onepercent.weight_domain.WeightMeasurement
 
 
 class SortMeasurements {

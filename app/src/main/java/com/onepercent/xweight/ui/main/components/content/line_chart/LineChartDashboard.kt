@@ -10,11 +10,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.onepercent.weight_domain.WeightMeasurement
 
 import com.onepercent.xweight.core.domain.ProgressBarState
 import com.onepercent.xweight.core.util.Constants.Companion.ONE_DAY_IN_MILLIS
 import com.onepercent.xweight.core.util.formatWeight
-import com.onepercent.xweight.weight.weight_domain.WeightMeasurement
 
 @Composable
 fun LineChartDashboard(

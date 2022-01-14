@@ -1,6 +1,6 @@
 package com.onepercent.xweight.weight.weight_datasource.cache
 
-import com.onepercent.xweight.weight.weight_domain.WeightMeasurement
+import com.onepercent.weight_domain.WeightMeasurement
 
 interface WeightMeasurementCacheDataSource {
 
