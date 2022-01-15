@@ -5,8 +5,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import com.onepercent.xweight.core.domain.Queue
-import com.onepercent.xweight.core.domain.UIComponent
+import com.onepercent.core.domain.Queue
+import com.onepercent.core.domain.UIComponent
 
 @Composable
 fun ProcessMessageQueue(

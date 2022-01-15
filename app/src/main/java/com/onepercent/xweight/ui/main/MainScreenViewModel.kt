@@ -6,9 +6,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.onepercent.weight_domain.WeightMeasurement
 
-import com.onepercent.xweight.core.domain.DataState
-import com.onepercent.xweight.core.domain.Queue
-import com.onepercent.xweight.core.domain.UIComponent
+import com.onepercent.core.domain.DataState
+import com.onepercent.core.domain.Queue
+import com.onepercent.core.domain.UIComponent
 import com.onepercent.xweight.weight.weight_interactors.GetAllMeasurements
 import com.onepercent.xweight.weight.weight_interactors.GetLastMeasurement
 import com.onepercent.xweight.weight.weight_interactors.InsertWeightMeasurement
@@ -100,7 +100,7 @@ constructor(
                 }
                 is DataState.Data -> {
                     if (dataState.data != null) {
-                        state.value = state.value.copy(newMeasurementValue = dataState.data.weight)
+                        state.value = state.value.copy(newMeasurementValue = dataState.data!!.weight)
                     }
                 }
                 is DataState.Response -> {

@@ -16,7 +16,7 @@ import androidx.compose.ui.unit.dp
 
 import com.onepercent.weight_domain.WeightMeasurement
 
-import com.onepercent.xweight.core.util.formatWeight
+import com.onepercent.core.util.formatWeight
 import com.onepercent.xweight.ui.theme.XweightTheme
 
 import java.text.SimpleDateFormat

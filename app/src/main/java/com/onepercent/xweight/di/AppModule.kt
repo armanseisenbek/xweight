@@ -2,7 +2,7 @@ package com.onepercent.xweight.di
 
 import android.content.Context
 import androidx.room.Room
-import com.onepercent.xweight.core.XweightDatabase
+import com.onepercent.xweight.XweightDatabase
 import com.onepercent.xweight.weight.weight_datasource.cache.WeightMeasurementCacheDataSource
 import com.onepercent.xweight.weight.weight_datasource.cache.WeightMeasurementCacheDataSourceImpl
 import com.onepercent.xweight.weight.weight_datasource.cache.WeightMeasurementDao

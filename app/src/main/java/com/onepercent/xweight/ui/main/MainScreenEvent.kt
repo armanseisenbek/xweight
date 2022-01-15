@@ -1,7 +1,7 @@
 package com.onepercent.xweight.ui.main
 
 import com.onepercent.weight_domain.WeightMeasurement
-import com.onepercent.xweight.core.domain.UIComponentState
+import com.onepercent.core.domain.UIComponentState
 import com.onepercent.xweight.ui.main.components.content.line_chart.LineChartFilter
 
 sealed class MainScreenEvent {

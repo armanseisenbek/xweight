@@ -9,8 +9,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.onepercent.weight_domain.WeightMeasurement
 
-import com.onepercent.xweight.core.domain.ProgressBarState
-import com.onepercent.xweight.core.domain.UIComponentState
+import com.onepercent.core.domain.ProgressBarState
+import com.onepercent.core.domain.UIComponentState
 import com.onepercent.xweight.ui.components.DefaultScreenUI
 import com.onepercent.xweight.ui.main.MainScreenEvent
 import com.onepercent.xweight.ui.main.MainScreenEvent.*
@@ -40,12 +40,12 @@ fun MainScreenContent(
                 .verticalScroll(rememberScrollState())
         ) {
 
-//            WeightGoal(
-//                startWeight = WeightMeasurement(weight = 59.9, date = 1610117600000),
-//                currentWeight = state.newMeasurementValue,
-////                currentWeight = 65.5,
-//                goalWeight = 75.0
-//            )
+            WeightGoal(
+                startWeight = WeightMeasurement(weight = 59.9, date = 1610117600000),
+                currentWeight = state.newMeasurementValue,
+//                currentWeight = 65.5,
+                goalWeight = 75.0
+            )
 
             LineChartDashboard(
                 progressBarState = state.lineChartProgressBarState,

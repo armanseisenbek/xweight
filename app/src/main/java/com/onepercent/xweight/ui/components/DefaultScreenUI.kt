@@ -6,9 +6,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.onepercent.xweight.core.domain.ProgressBarState
-import com.onepercent.xweight.core.domain.Queue
-import com.onepercent.xweight.core.domain.UIComponent
+import com.onepercent.core.domain.ProgressBarState
+import com.onepercent.core.domain.Queue
+import com.onepercent.core.domain.UIComponent
 
 /**
  * @param queue: Dialogs

@@ -1,4 +1,4 @@
-package com.onepercent.xweight.core.util
+package com.onepercent.xweight
 
 class Constants {
 

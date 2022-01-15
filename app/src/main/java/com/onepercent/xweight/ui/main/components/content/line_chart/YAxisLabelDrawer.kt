@@ -9,7 +9,7 @@ import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
 import androidx.compose.ui.graphics.nativeCanvas
 
-import com.onepercent.xweight.core.util.formatWeight
+import com.onepercent.core.util.formatWeight
 
 class YAxisLabelDrawer {
 

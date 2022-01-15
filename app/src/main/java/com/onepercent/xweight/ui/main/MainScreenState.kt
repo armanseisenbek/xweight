@@ -1,10 +1,10 @@
 package com.onepercent.xweight.ui.main
 
 import com.onepercent.weight_domain.WeightMeasurement
-import com.onepercent.xweight.core.domain.ProgressBarState
-import com.onepercent.xweight.core.domain.Queue
-import com.onepercent.xweight.core.domain.UIComponent
-import com.onepercent.xweight.core.domain.UIComponentState
+import com.onepercent.core.domain.ProgressBarState
+import com.onepercent.core.domain.Queue
+import com.onepercent.core.domain.UIComponent
+import com.onepercent.core.domain.UIComponentState
 import com.onepercent.xweight.ui.main.components.content.line_chart.LineChartFilter
 
 data class MainScreenState(

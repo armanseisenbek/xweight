@@ -1,7 +1,7 @@
 package com.onepercent.xweight.ui.history
 
 import com.onepercent.weight_domain.WeightMeasurement
-import com.onepercent.xweight.core.domain.UIComponentState
+import com.onepercent.core.domain.UIComponentState
 
 sealed class HistoryScreenEvent {
 

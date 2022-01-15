@@ -1,4 +1,4 @@
-package com.onepercent.xweight.core
+package com.onepercent.xweight
 
 import androidx.room.Database
 import androidx.room.RoomDatabase

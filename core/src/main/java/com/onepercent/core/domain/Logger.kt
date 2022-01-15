@@ -1,4 +1,4 @@
-package com.onepercent.xweight.core.domain
+package com.onepercent.core.domain
 
 class Logger(
     private val tag: String,

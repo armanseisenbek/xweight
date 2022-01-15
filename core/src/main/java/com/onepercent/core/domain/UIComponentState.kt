@@ -1,4 +1,4 @@
-package com.onepercent.xweight.core.domain
+package com.onepercent.core.domain
 
 /**
  * A generic class for hiding/showing some ui component.

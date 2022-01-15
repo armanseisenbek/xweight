@@ -1,6 +1,6 @@
 package com.onepercent.xweight.ui.main.components.content.line_chart
 
-import com.onepercent.xweight.core.util.Constants
+import com.onepercent.xweight.Constants
 
 object LineChartUtils {
 

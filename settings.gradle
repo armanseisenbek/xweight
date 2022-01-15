@@ -8,6 +8,8 @@ dependencyResolutionManagement {
 }
 rootProject.name = "xweight"
 include ':app'
+include ':core'
 include ':weight'
 include ':weight:weight-datasource'
 include ':weight:weight-domain'
+include ':weight:weight-interactors'

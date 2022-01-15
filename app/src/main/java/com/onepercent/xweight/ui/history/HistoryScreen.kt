@@ -6,7 +6,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.onepercent.weight_domain.WeightMeasurement
 
-import com.onepercent.xweight.core.domain.UIComponentState
+import com.onepercent.core.domain.UIComponentState
 import com.onepercent.xweight.ui.components.DefaultScreenUI
 import com.onepercent.xweight.ui.theme.XweightTheme
 import com.onepercent.xweight.ui.history.components.EditMeasurementDialog

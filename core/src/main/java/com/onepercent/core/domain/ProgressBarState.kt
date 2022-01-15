@@ -1,4 +1,4 @@
-package com.onepercent.xweight.core.domain
+package com.onepercent.core.domain
 
 sealed class ProgressBarState {
 
