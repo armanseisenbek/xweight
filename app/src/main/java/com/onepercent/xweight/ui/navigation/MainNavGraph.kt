@@ -1,7 +1,10 @@
-package com.onepercent.xweight.ui
+package com.onepercent.xweight.ui.navigation
 
-import androidx.compose.animation.*
-import androidx.compose.animation.core.*
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.slideInVertically
+import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -10,21 +13,17 @@ import androidx.navigation.NavGraphBuilder
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
-
 import com.onepercent.xweight.ui.history.HistoryScreen
 import com.onepercent.xweight.ui.history.HistoryScreenViewModel
 import com.onepercent.xweight.ui.main.MainScreen
 import com.onepercent.xweight.ui.main.MainScreenViewModel
-import com.onepercent.xweight.ui.navigation.Screen
 import com.onepercent.xweight.ui.theme.XweightTheme
 
 @ExperimentalAnimationApi
 @Composable
-fun XweightApp() {
-
+fun MainNavGraph() {
     XweightTheme {
         BoxWithConstraints {
-
             val navController = rememberAnimatedNavController()
 
             AnimatedNavHost(
@@ -39,7 +38,6 @@ fun XweightApp() {
             )
         }
     }
-
 }
 
 @ExperimentalAnimationApi
