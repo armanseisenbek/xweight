@@ -1,6 +1,6 @@
 package com.onepercent.xweight.di
 
-import com.onepercent.xweight.weight.weight_interactors.*
+import com.onepercent.weight_interactors.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -9,7 +9,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object WeightListModule {
+object WeightInteractorsModule {
 
     @Provides
     @Singleton
@@ -31,13 +31,7 @@ object WeightListModule {
 
     @Provides
     @Singleton
-    fun provideSortMeasurements(
-        interactors: WeightInteractors
-    ) : SortMeasurements = interactors.sortMeasurements
-
-    @Provides
-    @Singleton
     fun provideDeleteMeasurement(
         interactors: WeightInteractors
-    ) : DeleteMeasurement = interactors.deleteMeasurement
+    ) : DeleteWeightMeasurement = interactors.deleteMeasurement
 }

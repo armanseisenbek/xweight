@@ -10,10 +10,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.onepercent.constants.DateConstants.ONE_DAY_IN_MILLIS
 import com.onepercent.weight_domain.WeightMeasurement
 
 import com.onepercent.core.domain.ProgressBarState
-import com.onepercent.xweight.Constants.Companion.ONE_DAY_IN_MILLIS
 import com.onepercent.core.util.formatWeight
 
 @Composable

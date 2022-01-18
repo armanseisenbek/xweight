@@ -4,11 +4,15 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+
 import com.onepercent.weight_domain.WeightMeasurement
 import com.onepercent.core.domain.DataState
 import com.onepercent.core.domain.Queue
 import com.onepercent.core.domain.UIComponent
-import com.onepercent.xweight.weight.weight_interactors.*
+import com.onepercent.weight_interactors.DeleteWeightMeasurement
+import com.onepercent.weight_interactors.GetAllMeasurements
+import com.onepercent.weight_interactors.InsertWeightMeasurement
+
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -20,8 +24,7 @@ class HistoryScreenViewModel
 constructor(
     private val insertWeightMeasurement: InsertWeightMeasurement,
     private val getAllMeasurements: GetAllMeasurements,
-    private val sortMeasurements: SortMeasurements,
-    private val deleteMeasurement: DeleteMeasurement
+    private val deleteMeasurement: DeleteWeightMeasurement
 ) : ViewModel() {
 
     val state: MutableState<HistoryScreenState> = mutableStateOf(HistoryScreenState())
@@ -125,9 +128,11 @@ constructor(
     }
 
     private fun sortMeasurements() {
-        val sorted = sortMeasurements.execute(
-            state.value.weightMeasurements
-        )
+
+        val sorted: MutableList<WeightMeasurement> = state.value.weightMeasurements
+                .sortedByDescending { it.date }
+                .toMutableList()
+
         state.value = state.value.copy(weightMeasurements = sorted)
     }
 

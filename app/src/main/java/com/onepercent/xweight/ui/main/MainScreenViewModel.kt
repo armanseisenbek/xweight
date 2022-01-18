@@ -9,9 +9,9 @@ import com.onepercent.weight_domain.WeightMeasurement
 import com.onepercent.core.domain.DataState
 import com.onepercent.core.domain.Queue
 import com.onepercent.core.domain.UIComponent
-import com.onepercent.xweight.weight.weight_interactors.GetAllMeasurements
-import com.onepercent.xweight.weight.weight_interactors.GetLastMeasurement
-import com.onepercent.xweight.weight.weight_interactors.InsertWeightMeasurement
+import com.onepercent.weight_interactors.GetAllMeasurements
+import com.onepercent.weight_interactors.GetLastMeasurement
+import com.onepercent.weight_interactors.InsertWeightMeasurement
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach

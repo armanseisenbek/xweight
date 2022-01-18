@@ -1,6 +1,6 @@
 package com.onepercent.xweight.ui.main.components.content.line_chart
 
-import com.onepercent.xweight.Constants
+import com.onepercent.constants.DateConstants.ONE_DAY_IN_MILLIS
 
 object LineChartUtils {
 
@@ -11,7 +11,7 @@ object LineChartUtils {
     ): Float {
 
         val difference = date - startDate
-        val howManyDays = difference / Constants.ONE_DAY_IN_MILLIS
+        val howManyDays = difference / ONE_DAY_IN_MILLIS
 
         return howManyDays * lineDistance
     }

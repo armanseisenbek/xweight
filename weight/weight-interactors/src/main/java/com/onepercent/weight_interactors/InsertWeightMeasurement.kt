@@ -1,10 +1,11 @@
-package com.onepercent.xweight.weight.weight_interactors
+package com.onepercent.weight_interactors
 
 import com.onepercent.core.domain.DataState
 import com.onepercent.core.domain.ProgressBarState
 import com.onepercent.core.domain.UIComponent
+import com.onepercent.weight_datasource.cache.WeightMeasurementCacheDataSource
 import com.onepercent.weight_domain.WeightMeasurement
-import com.onepercent.xweight.weight.weight_datasource.cache.WeightMeasurementCacheDataSource
+
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 

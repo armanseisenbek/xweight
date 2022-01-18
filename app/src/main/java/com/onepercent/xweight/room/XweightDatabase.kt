@@ -1,9 +1,7 @@
-package com.onepercent.xweight
+package com.onepercent.xweight.room
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.onepercent.xweight.weight.weight_datasource.cache.WeightMeasurementEntity
-import com.onepercent.xweight.weight.weight_datasource.cache.WeightMeasurementDao
 
 @Database(
     entities = [

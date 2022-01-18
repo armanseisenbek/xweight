@@ -2,11 +2,11 @@ package com.onepercent.xweight.di
 
 import android.content.Context
 import androidx.room.Room
-import com.onepercent.xweight.XweightDatabase
-import com.onepercent.xweight.weight.weight_datasource.cache.WeightMeasurementCacheDataSource
-import com.onepercent.xweight.weight.weight_datasource.cache.WeightMeasurementCacheDataSourceImpl
-import com.onepercent.xweight.weight.weight_datasource.cache.WeightMeasurementDao
-import com.onepercent.xweight.weight.weight_interactors.*
+import com.onepercent.weight_datasource.cache.WeightMeasurementCacheDataSource
+import com.onepercent.weight_interactors.*
+import com.onepercent.xweight.room.XweightDatabase
+import com.onepercent.xweight.room.WeightMeasurementCacheDataSourceImpl
+import com.onepercent.xweight.room.WeightMeasurementDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -52,8 +52,7 @@ object AppModule {
             InsertWeightMeasurement(weightMeasurementCacheDataSource),
             GetAllMeasurements(weightMeasurementCacheDataSource),
             GetLastMeasurement(weightMeasurementCacheDataSource),
-            SortMeasurements(),
-            DeleteMeasurement(weightMeasurementCacheDataSource)
+            DeleteWeightMeasurement(weightMeasurementCacheDataSource)
         )
     }
 }

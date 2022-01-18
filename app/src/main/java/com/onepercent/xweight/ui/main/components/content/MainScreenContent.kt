@@ -17,6 +17,7 @@ import com.onepercent.xweight.ui.main.MainScreenEvent.*
 import com.onepercent.xweight.ui.main.MainScreenState
 import com.onepercent.xweight.ui.main.components.fab.InsertMeasurementDialog
 import com.onepercent.xweight.ui.main.components.content.line_chart.LineChartDashboard
+import com.onepercent.xweight.ui.main.components.content.top_bar.MainTopBar
 import com.onepercent.xweight.ui.main.components.content.weight_goal.WeightGoal
 
 @Composable
@@ -39,6 +40,8 @@ fun MainScreenContent(
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
         ) {
+
+            MainTopBar()
 
             WeightGoal(
                 startWeight = WeightMeasurement(weight = 59.9, date = 1610117600000),

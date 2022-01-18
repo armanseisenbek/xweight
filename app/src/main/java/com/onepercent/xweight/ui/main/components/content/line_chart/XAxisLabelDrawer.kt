@@ -7,7 +7,7 @@ import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
 import androidx.compose.ui.graphics.nativeCanvas
 
-import com.onepercent.xweight.Constants.Companion.ONE_DAY_IN_MILLIS
+import com.onepercent.constants.DateConstants.ONE_DAY_IN_MILLIS
 
 import java.text.SimpleDateFormat
 import java.util.*

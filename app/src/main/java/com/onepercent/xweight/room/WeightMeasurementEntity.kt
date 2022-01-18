@@ -1,4 +1,4 @@
-package com.onepercent.xweight.weight.weight_datasource.cache
+package com.onepercent.xweight.room
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

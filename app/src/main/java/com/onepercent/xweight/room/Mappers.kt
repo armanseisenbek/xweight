@@ -1,7 +1,6 @@
-package com.onepercent.xweight.weight.util
+package com.onepercent.xweight.room
 
 import com.onepercent.weight_domain.WeightMeasurement
-import com.onepercent.xweight.weight.weight_datasource.cache.WeightMeasurementEntity
 
 fun WeightMeasurement.mapToEntity() : WeightMeasurementEntity {
     return WeightMeasurementEntity(

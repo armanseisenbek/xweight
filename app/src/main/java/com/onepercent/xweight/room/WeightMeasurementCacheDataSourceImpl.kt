@@ -1,8 +1,7 @@
-package com.onepercent.xweight.weight.weight_datasource.cache
+package com.onepercent.xweight.room
 
+import com.onepercent.weight_datasource.cache.WeightMeasurementCacheDataSource
 import com.onepercent.weight_domain.WeightMeasurement
-import com.onepercent.xweight.weight.util.mapFromEntity
-import com.onepercent.xweight.weight.util.mapToEntity
 
 class WeightMeasurementCacheDataSourceImpl
 constructor(
