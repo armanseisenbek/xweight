@@ -1,4 +1,4 @@
-package com.onepercent.xweight.weight.weight_datasource.cache
+package com.onepercent.weight_datasource.cache
 
 import com.onepercent.weight_domain.WeightMeasurement
 
