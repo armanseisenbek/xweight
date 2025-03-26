@@ -123,6 +123,10 @@ constructor(
                     }
                     getMeasurements()
                 }
+
+                is DataState.Data -> {
+
+                }
             }
         }.launchIn(viewModelScope)
     }

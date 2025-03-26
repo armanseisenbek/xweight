@@ -35,6 +35,13 @@ fun ProcessMessageQueue(
 
                     onRemoveHeadFromQueue()
                 }
+
+                is UIComponent.None -> {
+
+                }
+                is UIComponent.Snackbar -> {
+
+                }
             }
         }
     }

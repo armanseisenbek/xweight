@@ -1,9 +1,11 @@
 package com.onepercent.xweight.ui.history.components
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.AlertDialog
-import androidx.compose.material.Text
-import androidx.compose.material.TextButton
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.BasicAlertDialog
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -14,6 +16,7 @@ import com.onepercent.xweight.ui.theme.XweightTheme
 import java.text.SimpleDateFormat
 import java.util.*
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun EditMeasurementDialog(
     onInsertWeightMeasurement: (WeightMeasurement) -> Unit,
@@ -24,17 +27,14 @@ fun EditMeasurementDialog(
     measurementValue: Double
 ) {
 
-    AlertDialog(
+    BasicAlertDialog(
         onDismissRequest = { onCloseDialog() },
-        title = {
+        content = {
             Row(
                 modifier = Modifier.fillMaxWidth().padding(5.dp),
                 horizontalArrangement = Arrangement.Center,
                 content = { Text(text = "Edit Weight") }
             )
-        },
-        buttons = {
-
             // Date
             Row(
                 modifier = Modifier.fillMaxWidth().padding(10.dp),

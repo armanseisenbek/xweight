@@ -1,7 +1,11 @@
 package com.onepercent.xweight.ui.main.components.content.line_chart
 
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.*
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -49,7 +53,7 @@ fun LineChartFilterPicker(
                         pickLineChartFilterValue(it)
                         expanded = !expanded
                     },
-                    content = {
+                    text = {
                         Text(text = stringResource(it.label))
                     }
                 )
