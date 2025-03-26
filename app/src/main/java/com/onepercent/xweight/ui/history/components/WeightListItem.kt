@@ -4,9 +4,9 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -36,13 +36,13 @@ fun WeightListItem(
     val backgroundColor = when {
         difference > 0 -> if (isSystemInDarkTheme()) Color(0xff112613) else Color(0xffe0fce0)
         difference < 0 -> if (isSystemInDarkTheme()) Color(0xff3b2728) else Color(0xfffce0e0)
-        else -> MaterialTheme.colors.surface
+        else -> MaterialTheme.colorScheme.surface
     }
 
     val textColor = when {
         difference > 0 -> Color(0xff17bd17)
         difference < 0 -> Color(0xffbd1717)
-        else -> MaterialTheme.colors.onSurface
+        else -> MaterialTheme.colorScheme.onSurface
     }
 
     Surface(

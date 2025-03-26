@@ -10,9 +10,12 @@ import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
-import com.google.accompanist.navigation.animation.AnimatedNavHost
-import com.google.accompanist.navigation.animation.composable
-import com.google.accompanist.navigation.animation.rememberAnimatedNavController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+//import com.google.accompanist.navigation.animation.AnimatedNavHost
+//import com.google.accompanist.navigation.animation.composable
+//import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.onepercent.xweight.ui.history.HistoryScreen
 import com.onepercent.xweight.ui.history.HistoryScreenViewModel
 import com.onepercent.xweight.ui.main.MainScreen
@@ -24,9 +27,9 @@ import com.onepercent.xweight.ui.theme.XweightTheme
 fun MainNavGraph() {
     XweightTheme {
         BoxWithConstraints {
-            val navController = rememberAnimatedNavController()
+            val navController = rememberNavController()
 
-            AnimatedNavHost(
+            NavHost(
                 navController = navController,
                 startDestination = Screen.Main.route,
                 builder = {

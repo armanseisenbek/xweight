@@ -1,7 +1,12 @@
 package com.onepercent.xweight.ui.main
 
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
+import androidx.compose.material3.FabPosition
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 
 import com.onepercent.core.domain.UIComponentState
 import com.onepercent.xweight.ui.main.components.bottom_bar.MainScreenBottomBar
@@ -16,8 +21,12 @@ fun MainScreen(
 ) {
 
     Scaffold(
-        content = {
-            MainScreenContent(state = state, events = events)
+        content = { padding ->
+            Box(
+                modifier = Modifier.padding(padding)
+            ) {
+                MainScreenContent(state = state, events = events)
+            }
         },
         bottomBar = {
             MainScreenBottomBar(navigateToHistoryScreen = navigateToHistoryScreen)
@@ -28,7 +37,6 @@ fun MainScreen(
                 events(MainScreenEvent.UpdateInsertDialogState(UIComponentState.Show))
             }
         },
-        floatingActionButtonPosition = FabPosition.End,
-        isFloatingActionButtonDocked = true
+        floatingActionButtonPosition = FabPosition.End
     )
 }
